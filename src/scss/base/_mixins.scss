@@ -51,7 +51,7 @@
 }
 
 @mixin contenedor {
-    width: min(95%, 120rem);
+    width: min(95%, 144rem);
     margin: 0 auto;
 }
 
@@ -68,6 +68,26 @@
 
 @mixin nombre-pagina {
     @include headings;
-    margin: 6rem 0  3rem 0;
+    margin: 6rem 0 3rem 0;
     text-align: center;
+}
+
+@mixin textoFluido($min, $max) {
+    font-size: clamp($min, -0.8rem + 10vw, $max); //$min es el tamaño mínimo de la fuente, $max es el tamaño máximo de la fuente -0.8rem es el tamaño mínimo de la fuente, 10vw es el tamaño máximo de la fuente, sirve para que el texto se ajuste al tamaño de la pantalla sin desbordarse
+}
+
+@mixin textoDegradado ($inciio, $final) {
+    background-image: linear-gradient(to right, $inciio, $final);
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin logo () {
+    color: v.$blanco;
+    text-align: center;
+    margin-bottom: 2rem;
+    @include desktop {
+        text-align: left;
+        margin: 0;
+    }
 }
