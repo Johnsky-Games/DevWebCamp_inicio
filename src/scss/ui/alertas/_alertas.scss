@@ -15,6 +15,6 @@
     &__exito {
         background-color: lighten(v.$verde, 40%);
         border-left: .5rem solid v.$verde;
-        color: v.$verde;
+        color: darken(v.$verde,20);
     }
 }
