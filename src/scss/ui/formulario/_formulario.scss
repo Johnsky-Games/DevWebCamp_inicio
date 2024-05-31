@@ -24,6 +24,24 @@
         margin: 1.5rem 0;
     }
 
+    &__contenedor-icono {
+        display: flex;
+        border-radius: .5rem;
+        overflow: hidden;
+    }
+
+    &__icono {
+        background-color: v.$gris-oscuro;
+        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i{
+            color: v.$blanco;
+        }
+    }
+
     &__label {
         display: block;
         font-size: 1.8rem;
@@ -38,6 +56,13 @@
         &--file {
             border: none;
         }
+
+        &--sociales {
+            @extend .formulario__input;
+            flex: 1;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 
     &__submit {
@@ -48,5 +73,17 @@
         &--registrar {
             width: 100%;
         }
+    }
+
+    &__listado {
+        @include m.tags;
+    }
+
+    &__texto {
+        margin-top: 3rem;
+    }
+
+    &__imagen {
+        max-width: 20rem;
     }
 }
