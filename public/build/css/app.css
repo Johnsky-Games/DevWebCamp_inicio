@@ -364,6 +364,16 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+.formulario__filedset {
+  border: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+.formulario__legend {
+  color: #64748B;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
 .formulario__campo {
   display: flex;
   flex-direction: column;
@@ -379,6 +389,9 @@ h3 {
   padding: 1rem;
   border: 1px solid #b1c7dd;
   border-radius: 0.5rem;
+}
+.formulario__input--file {
+  border: none;
 }
 .formulario__submit {
   background-color: #007df4;
@@ -398,6 +411,9 @@ h3 {
 .formulario__submit:hover {
   background-color: #0063c1;
   cursor: pointer;
+}
+.formulario__submit--registrar {
+  width: 100%;
 }
 
 .acciones, .acciones--centrar {
@@ -770,6 +786,7 @@ h3 {
   .dashboard__contenedor-boton {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 5rem;
   }
 }
 .dashboard__boton {
@@ -795,5 +812,15 @@ h3 {
   .dashboard__boton {
     width: auto;
   }
+}
+.dashboard__contenedor, .dashboard__formulario {
+  box-shadow: 0px 9px 30px rgba(140, 0, 255, 0.3);
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.dashboard__formulario {
+  width: min(95%, 80rem);
+  margin: 0 auto;
 }
 /*# sourceMappingURL=app.css.map */
