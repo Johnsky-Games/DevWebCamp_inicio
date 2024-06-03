@@ -13,7 +13,19 @@ function s($html): string
     return $s;
 }
 
-function pagina_actual($path) : bool
+function pagina_actual($path): bool
 {
     return str_contains($_SERVER['PATH_INFO'], $path) ? true : false;
+}
+
+function isAuth(): bool
+{
+    session_start();
+    return isset($_SESSION['nombre']) && !empty($_SESSION);
+}
+
+function isAdmin(): bool
+{
+    session_start();
+    return isset($_SESSION['admin']) && !empty($_SESSION['admin']);
 }

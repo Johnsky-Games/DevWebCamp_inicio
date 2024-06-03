@@ -885,6 +885,9 @@ h3 {
 .table__tr:nth-child(even) {
   background-color: #e6edf4;
 }
+.table__tr:hover {
+  background-color: #b1c7dd;
+}
 .table__td, .table__td--acciones {
   padding: 1.5rem 1rem;
 }

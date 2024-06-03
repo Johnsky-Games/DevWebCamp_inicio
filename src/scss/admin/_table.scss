@@ -19,6 +19,9 @@
         &:nth-child(even) {
             background-color: darken(v.$gris-claro,5);
         }
+        &:hover {
+            background-color: darken(v.$gris-claro, 20);
+        }
     }
 
     &__td {
