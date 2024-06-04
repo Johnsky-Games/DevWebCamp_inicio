@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Ponente;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image; // Importar la clase Image de Intervention para manipular imágenes en el servidor
@@ -10,15 +11,36 @@ class PonentesController
 {
     public static function index(Router $router)
     {
+
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        if (!$pagina_actual || $pagina_actual < 1) {
+            header('Location: /admin/ponentes?page=1');
+        }
+
+        $registros_por_pagina = 10;
+
+        $total = Ponente::total();
+
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total);
+
+        
+        if ($paginacion->totalPaginas() < $pagina_actual) {
+            header('Location: /admin/ponentes?page=1');
+        
+        }
+        
+        $ponentes = Ponente::paginar($registros_por_pagina,$paginacion->offset());
         if (!isAdmin()) {
             header('Location: /login');
         }
 
-        $ponentes = Ponente::all();
 
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
-            'ponentes' => $ponentes
+            'ponentes' => $ponentes,
+            'paginacion' => $paginacion->paginacion()
         ]);
     }
     public static function crear(Router $router)
@@ -110,7 +132,7 @@ class PonentesController
         $ponente->imagen_actual = $ponente->imagen;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             if (!isAdmin()) {
                 header('Location: /login');
             }
@@ -163,7 +185,7 @@ class PonentesController
         if (!isAdmin()) {
             header('Location: /login');
         }
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $ponente = Ponente::find($id);

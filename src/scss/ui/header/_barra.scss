@@ -20,6 +20,5 @@
     &__logo {
         @include m.logo;
         @include m.textoFluido(2rem, 3rem);
-
     }
 }

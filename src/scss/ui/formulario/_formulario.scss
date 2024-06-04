@@ -37,7 +37,7 @@
         align-items: center;
         justify-content: center;
 
-        i{
+        i {
             color: v.$blanco;
         }
     }
@@ -48,7 +48,8 @@
         color: rgba(v.$negro, 0.8);
     }
 
-    &__input {
+    &__input,
+    &__select {
         padding: 1rem;
         border: 1px solid darken(v.$gris-claro, 20);
         border-radius: .5rem;
@@ -77,6 +78,12 @@
 
     &__listado {
         @include m.tags;
+    }
+
+    &__radio {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
     }
 
     &__texto {
