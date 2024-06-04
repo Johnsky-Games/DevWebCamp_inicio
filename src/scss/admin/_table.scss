@@ -16,13 +16,11 @@
     }
 
     &__tr {
-        transition: 300ms background-color ease-in-out;
         &:nth-child(even) {
             background-color: darken(v.$gris-claro,5);
         }
         &:hover {
             background-color: darken(v.$gris-claro, 20);
-
         }
     }
 
@@ -34,12 +32,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             gap: 2rem;
-
-            @include m.tablet {
-                flex-direction: row;
-            }
         }
     }
 
