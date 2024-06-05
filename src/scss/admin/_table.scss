@@ -16,6 +16,7 @@
     }
 
     &__tr {
+        transition: 300ms background-color ease-in-out;
         &:nth-child(even) {
             background-color: darken(v.$gris-claro,5);
         }

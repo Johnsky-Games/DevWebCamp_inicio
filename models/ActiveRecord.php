@@ -156,6 +156,20 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    //Buesqueda Where con multiples columnas
+    public static function whereArray($array = [])
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+        foreach ($array as $key => $value) {
+            $query .= " " . $key . " = " . $value;
+            if($key !== array_key_last($array)){
+                $query .= " AND ";
+            }
+        }
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado);
+    }
+
     // Total de Registros en la BD - Paginación  
     public static function total()
     {

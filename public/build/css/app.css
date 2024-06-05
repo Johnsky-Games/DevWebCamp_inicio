@@ -929,13 +929,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   gap: 2rem;
-}
-@media (min-width: 768px) {
-  .table__td--acciones {
-    flex-direction: row;
-  }
 }
 .table__accion {
   all: unset;
