@@ -8,6 +8,4 @@ class Categoria extends ActiveRecord {
 
     public $id;
     public $nombre;
-
-    
 }
