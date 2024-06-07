@@ -33,7 +33,7 @@
                     if (ponente.nombre.toLowerCase().search(expresion) != -1) {
                         return ponente;
                     }
-                    })
+                })
                 console.log(ponentesFiltrados);
             }
         }
