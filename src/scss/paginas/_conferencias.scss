@@ -30,7 +30,8 @@
         }
     }
 
-    .swiper-button-next, .swiper-button-prev {
+    .swiper-button-next,
+    .swiper-button-prev {
         color: rgba(v.$blanco, .5);
     }
 }
@@ -53,7 +54,7 @@
         }
     }
 
-    &__nombre{
+    &__nombre {
         font-size: 2.4rem;
         margin: 0;
         display: -webkit-box;
