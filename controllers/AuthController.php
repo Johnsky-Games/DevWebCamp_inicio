@@ -37,9 +37,8 @@ class AuthController
                         $_SESSION['admin'] = $usuario->admin ?? null;
 
                         //Redireccionar al admin
-                        //Redireccionar al admin
                         if ($usuario->admin) {
-                            header('Location: /admin/dashboard');
+                            header('Location: /devwebcamp');
                         } else {
                             header('Location: /finalizar-registro');
                         }

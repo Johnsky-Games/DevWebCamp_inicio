@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pagina_404 {
+    padding: 5rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    text-align: center;
+    
+    &__contenedor {
+        @include m.contenedor-sm;
+        min-height: 60rem;
+        background-image: linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, 0.3)),image-set(url('../img/404.webp') 1x, url('../img/404.jpg') 1x, url('../img/404.avif') 1x);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        color: v.$blanco;
+        padding: 5rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem rgba(v.$negro, 0.5);
+    }
+
+    &__texto {
+        font-size: 6rem;
+        font-weight: v.$bold;
+        color: v.$blanco;
+        margin: 0;
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+    }
+
+    &__enlace {
+        @include m.enlace;
+        color: v.$azul;
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+}

@@ -67,8 +67,8 @@ class PonentesController
                 }
 
                 //Generar versiones .png y .webp
-                $img_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600)->encode('png', 80);
-                $img_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600)->encode('webp', 80);
+                $img_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('png', 80);
+                $img_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('webp', 80);
 
                 $nombre_imagen = md5(uniqid(rand(), true));
                 $_POST['imagen'] = $nombre_imagen;
@@ -146,8 +146,8 @@ class PonentesController
                 }
 
                 //Generar versiones .png y .webp
-                $img_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600)->encode('png', 80);
-                $img_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600)->encode('webp', 80);
+                $img_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('png', 80);
+                $img_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('webp', 80);
 
                 $nombre_imagen = md5(uniqid(rand(), true));
                 $_POST['imagen'] = $nombre_imagen;
