@@ -27,7 +27,10 @@
             </ul>
 
             <p class="paquete__precio">$ 199</p>
-            <div id="paypal-container-PVHQCMRVVN6QA"></div>
+
+            <div style="text-align: center;">
+                <div id="paypal-container-PVHQCMRVVN6QA"></div>
+            </div>
         </div>
         <div <?php aos_animacion(); ?> class="paquete">
             <h3 class="paquete__nombre">Pase Virtual</h3>
@@ -48,21 +51,49 @@
 </script>
 <script>
 paypal.Buttons({
+    style: {
+        layout: 'vertical',
+        color: 'blue',
+        shape: 'pill',
+        label: 'buynow'
+    },
     createOrder: function(data, actions) {
+
         return actions.order.create({
             purchase_units: [{
-                desciption: "Pase Presencial DevWebCamp",
-                id: "PVHQCMRVVN6QA",
+                description: '1',
                 amount: {
-                    value: '199.00',
+                    currency_code: 'USD',
+                    value: '199.00'
                 }
             }]
         });
     },
     onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
+        return actions.order.capture().then(function(orderData) {
+            //Full available details
+            const datos = new FormData();
+            datos.append('paquete_id', orderData.purchase_units[0].description);
+            datos.append('pago_id', orderData.purchase_units[0].payments.captures[0].id);
+
+            fetch('/finalizar-registro/pagar', {
+                    method: 'POST',
+                    body: datos
+                })
+                .then(respuesta => respuesta.json())
+                .then(resultado => {
+                    if (resultado.resultado) {
+                        actions.redirect(
+                            'http://localhost:3000/finalizar-registro/conferencias');
+                    }
+                });
         });
+    },
+    onError: function(err) {
+        console.log(err);
+    },
+    onCancel: function(data) {
+        console.log('OnCancel', data);
     }
 }).render('#paypal-container-PVHQCMRVVN6QA');
 </script>
